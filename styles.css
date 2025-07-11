@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #141414;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #e50914;
+}
+
+.banner-container {
+    margin-bottom: 50px;
+    position: relative;
+    display: none;
+}
+
+.banner {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 1s, transform 1s;
+}
+
+.banner.loaded {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.profiles-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profiles-title {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.profiles-title.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.profiles-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.profile.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.profile:hover {
+    transform: scale(1.05);
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 3px solid transparent;
+    transition: border-color 0.3s;
+    margin-bottom: 15px;
+}
+
+.profile:hover .profile-image {
+    border-color: white;
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    color: #808080;
+    transition: color 0.3s;
+}
+
+.profile:hover .profile-name {
+    color: white;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(229, 9, 20, 0.3);
+    border-radius: 50%;
+    border-top-color: #e50914;
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 20px;
+}
+
+.loading-text {
+    font-size: 1.5rem;
+    color: #808080;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ... (mantenha todo o CSS anterior) ... */
+
+/* Adicione estas novas regras no final */
+
+.profile.selected {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    z-index: 100;
+    transition: all 0.5s ease;
+}
+
+.profile.selected .profile-image {
+    animation: pulse-border 1.5s infinite;
+}
+
+@keyframes pulse-border {
+    0% {
+        box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(229, 9, 20, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(229, 9, 20, 0);
+    }
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.loading-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.loading-overlay-spinner {
+    width: 70px;
+    height: 70px;
+    border: 8px solid rgba(229, 9, 20, 0.3);
+    border-radius: 50%;
+    border-top-color: #e50914;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+.loading-overlay-text {
+    font-size: 1.8rem;
+    color: white;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Contato</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contato.css">
+</head>
+<body>
+    <div class="contact-page">
+        <h1 class="page-title">Envie-nos uma Mensagem</h1>
+        
+        <div class="letter-container" id="letterContainer">
+            <div class="letter" id="letter">
+                <div class="letter-front" id="letterFront">
+                    <div class="stamp">Selar</div>
+                    <div class="letter-content">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Seu Nome" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="Seu E-mail" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" placeholder="Sua Mensagem..." required></textarea>
+                            </div>
+                            <button type="submit" class="submit-button">Escrever Carta</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="letter-back"></div>
+            </div>
+            
+            <div class="send-button-container" id="sendButtonContainer">
+                <button class="send-button" id="sendButton">Enviar Carta</button>
+            </div>
+        </div>
+        
+        <div class="success-message" id="successMessage">
+            <h2>Carta Enviada com Sucesso!</h2>
+            <p>Obrigado por entrar em contato. Responderemos em breve.</p>
+            <a href="index.html" class="back-button">Voltar</a>
+        </div>
+    </div>
+
+    <script src="contato.js"></script>
+</body>
+</html>

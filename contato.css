@@ -1,0 +1,190 @@
+/* Estilo da página */
+.contact-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #e50914;
+}
+
+/* Estilo da carta */
+.letter-container {
+    perspective: 1000px;
+    margin: 0 auto 40px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+.letter {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+}
+
+.letter.flipped {
+    transform: rotateY(180deg);
+}
+
+.letter-front, .letter-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.letter-front {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.letter-back {
+    background: #f5f5f5;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: repeating-linear-gradient(
+        -45deg,
+        #f5f5f5,
+        #f5f5f5 10px,
+        #e50914 10px,
+        #e50914 11px
+    );
+}
+
+.stamp {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 80px;
+    background: #e50914;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 5px;
+    transform: rotate(15deg);
+}
+
+/* Formulário */
+.letter-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #e50914;
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+.submit-button {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    background-color: #b00710;
+}
+
+/* Botão de enviar */
+.send-button-container {
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.send-button-container.visible {
+    opacity: 1;
+}
+
+.send-button {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
+}
+
+.send-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(229, 9, 20, 0.6);
+}
+
+/* Mensagem de sucesso */
+.success-message {
+    display: none;
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.success-message h2 {
+    color: #e50914;
+    margin-bottom: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .letter {
+        height: 450px;
+    }
+    
+    .letter-front, .letter-back {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carregamento Estilo Netflix</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="logo">LUIS XAVIER</div>
+    
+    <div class="container">
+        <!-- Tela de carregamento inicial -->
+        <div class="loading" id="loading">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Carregando...</div>
+        </div>
+        
+        <!-- Banner principal -->
+        <div class="banner-container" id="bannerContainer">
+            <img src="IMG/Logo.jpg" alt="Banner" class="banner" id="banner">
+        </div>
+        
+        <!-- Seleção de perfis -->
+        <div class="profiles-container" id="profilesContainer">
+            <h1 class="profiles-title" id="profilesTitle">Escolha uma seção</h1>
+            <div class="profiles-list">
+                <div class="profile" id="profile1" data-page="home.html">
+                    <img src="IMG/IMG2.jpg" alt="Home" class="profile-image">
+                    <div class="profile-name">Home</div>
+                </div>
+                <div class="profile" id="profile2" data-page="sobre.html">
+                    <img src="IMG/IMG3.jpg" alt="Sobre" class="profile-image">
+                    <div class="profile-name">Sobre</div>
+                </div>
+                <div class="profile" id="profile3" data-page="projeto.html">
+                    <img src="IMG/IMG4.jpg" alt="Projeto" class="profile-image">
+                    <div class="profile-name">Projeto</div>
+                </div>
+                <div class="profile" id="profile4" data-page="contato.html">
+                    <img src="IMG/IMG5.jpg" alt="Contato" class="profile-image">
+                    <div class="profile-name">Contato</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
